@@ -7,8 +7,7 @@
 
 <p align="center">
   <a href="#descrição-do-desafio">Descrição do Desafio</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#extras">Extras</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-</p>
+  <a href="#extras">Extras</a>
 
 ### Tempo máximo esperado para resolução: 7 dias
 

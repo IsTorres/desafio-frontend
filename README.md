@@ -8,8 +8,9 @@
 <p align="center">
   <a href="#descrição-do-desafio">Descrição do Desafio</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#extras">Extras</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#dados-para-o-desafio">Dados para o desafio</a>
 </p>
+
+### Tempo máximo esperado para resolução: 7 dias
 
 ## Descrição do desafio
 
@@ -53,7 +54,7 @@ visual.
 como você pensou os passos da criação do website.
 
 ## Extras
-
+> - Testes unitários com Vitest ou E2E com Cypress;
 > - Exibir o histórico de pedidos realizados (podem ser armazenados no localstorage ou utilizar json-server api);
 > - Criação de custom hooks;
 > - Utilizar Conventional Commits Pattern.

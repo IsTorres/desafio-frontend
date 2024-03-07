@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchAPI } from "../service";
-
-type Comic = {
-  id: number;
-  title: string;
-  description: string;
-  thumbnail: string;
-};
-
-type ComicsList = Comic[];
+import ComicListItem from "./ComicListItem";
+import { ComicsList, Comic } from "../types/Comic.type";
 
 export default function ComicsList() {
   const [comics, setComics] = useState<ComicsList>([]);
@@ -23,7 +16,7 @@ export default function ComicsList() {
     <div>
       <ul>
         {comics.map((el: Comic) => {
-          return <li key={el.id}>{el.title}</li>;
+          return <ComicListItem el={el} />;
         })}
       </ul>
     </div>

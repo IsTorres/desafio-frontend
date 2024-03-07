@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { fetchAPI } from "./service";
+import ComicsList from "./components/ComicsList";
 
 function App() {
   const [comics, setComics] = useState([]);
@@ -29,6 +30,7 @@ function App() {
         >
           click
         </button>
+        <ComicsList />
       </ul>
     </div>
   );

@@ -1,19 +1,30 @@
-import "./App.css";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 
-function App() {
+export default function App() {
   return (
-    <div>
-      <h1>Home</h1>
-      <ul>
-        <li>
-          <a href="/pages/product/">Products</a>
-        </li>
-        <li>
-          <a href="/pages/shopping-cart/">ShoppingCart</a>
-        </li>
-      </ul>
-    </div>
+    <>
+      <div>
+        <h1>Homfdsdfsfsdfse</h1>
+        <ul>
+          <li>
+            <a href="/product/">Product</a>
+          </li>
+          <li>
+            <a href="/pages/checkout/">Checkout</a>
+          </li>
+          <li>
+            <a href="/">home</a>
+          </li>
+        </ul>
+      </div>
+    </>
   );
 }
 
-export default App;
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);

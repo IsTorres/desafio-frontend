@@ -29,6 +29,9 @@ problema para efetuar a compra. O layout e a arquitetura é com você, seja cria
 > - Utilizar Typescript corretamente;
 > - Estilização feita com Styled Components ou Tailwind CSS;
 > - Utilização do gerenciador de estado global Context API;
+> - Utilizar a lib react-hook-form para o formulário de cartão;
+> - Validação do formulário de cartão com a lib Zod ou Yup;
+> - Esquema de navegação de rotas com react-router-dom;
 > - Estrutura do código, organização e componentização;
 > - Que a UI seja autoral do participante, esteticamente bonita e simples de usar;
 > - Layout responsivo;

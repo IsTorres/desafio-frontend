@@ -3,7 +3,12 @@ export type Comic = {
   id: number;
   title: string;
   description: string;
-  thumbnail: string;
+  thumbnail: Thumbnail;
+};
+
+export type Thumbnail = {
+  path: string;
+  extension: string;
 };
 
 export type Prices = {

@@ -1,16 +1,26 @@
 import { useEffect, useState } from "react";
 import { fetchComicsWithParams } from "../service";
-import ComicListItem from "./ComicListItem";
-import { ComicsList, Comic } from "../types/Comic";
+import { Comic, ComicsList } from "../types/Comic";
 import { DateDescriptor } from "../utils";
+import Pagination from "./Pagination";
 
 export default function ComicsList() {
-  const [comics, setComics] = useState<ComicsList>([]);
+  const [comics, setComics] = useState<Comic[]>([]);
   const [descriptor, setDescriptor] = useState<string>("thisWeek");
+  const [loading, setLoading] = useState<boolean>(true);
 
   const load = async () => {
-    setComics(await fetchComicsWithParams(descriptor));
+    setLoading(true);
+    try {
+      const comicsData = await fetchComicsWithParams(descriptor);
+      setComics(comicsData);
+    } catch (error) {
+      console.error("Error loading comics:", error);
+    } finally {
+      setLoading(false);
+    }
   };
+
   useEffect(() => {
     load();
   }, [descriptor]);
@@ -25,26 +35,18 @@ export default function ComicsList() {
         {Object.keys(DateDescriptor).map((key) => {
           return (
             <option key={key} value={key}>
-              {DateDescriptor[key] as keyof typeof DateDescriptor}
+              {DateDescriptor[key as keyof typeof DateDescriptor]}
             </option>
           );
         })}
       </select>
-      <ul>
-        {comics.length > 1 ? (
-          comics.map((el: Comic) => {
-            return (
-              <li key={el.id} style={{ listStyle: "none" }}>
-                <ComicListItem el={el} />
-              </li>
-            );
-          })
-        ) : (
-          <div>
-            <p>Loading</p>
-          </div>
-        )}
-      </ul>
+      {loading ? (
+        <p>Loading...</p>
+      ) : comics.length ? (
+        <Pagination data={comics} />
+      ) : (
+        <p>No comics found.</p>
+      )}
     </div>
   );
 }

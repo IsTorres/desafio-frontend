@@ -13,24 +13,26 @@ const api: AxiosInstance = axios.create({
   baseURL: `${VITE_PUBLIC_API_URL}/v1/public/`,
 });
 
+const defaultParams = {
+  format: "comic",
+  formatType: "comic",
+  ts,
+  apikey: VITE_PUBLIC_API_KEY,
+  hash,
+};
+
 export const fetchComicsWithParams = async (dateDescriptor: string) => {
   try {
     const request = await api.get("comics", {
       params: {
-        format: "comic",
-        formatType: "comic",
         dateDescriptor,
-        ts,
-        apikey: VITE_PUBLIC_API_KEY,
-        hash,
+        limit: 100,
+        ...defaultParams,
       },
     });
-
     return request.data.data.results;
   } catch (error) {
     console.error("Erro ao buscar quadrinhos:", error);
     throw error;
   }
 };
-
-//TODO: request next pages

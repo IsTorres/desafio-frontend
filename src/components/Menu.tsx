@@ -3,15 +3,15 @@ import React from "react";
 export default function Menu() {
   return (
     <div>
-      Menu{" "}
-      <ul>
-        <li>
+      Menu
+      <nav>
+        <div>
           <a href="/pages/product/">Products</a>
-        </li>
-        <li>
+        </div>
+        <div>
           <a href="/pages/shopping-cart/">ShoppingCart</a>
-        </li>
-      </ul>
+        </div>
+      </nav>
     </div>
   );
 }

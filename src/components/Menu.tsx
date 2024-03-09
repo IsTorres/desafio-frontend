@@ -1,12 +1,12 @@
-import React from "react";
-
+import MarvelComicsIcon from "../../public/MarvelComicsIcon.png";
 export default function Menu() {
   return (
     <div>
-      Menu
-      <nav>
+      <nav style={{ display: "flex" }}>
         <div>
-          <a href="/pages/product/">Products</a>
+          <a href="/">
+            <img src={MarvelComicsIcon} />
+          </a>
         </div>
         <div>
           <a href="/pages/shopping-cart/">ShoppingCart</a>

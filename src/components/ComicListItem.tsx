@@ -1,21 +1,17 @@
-import { ReactElement } from "react";
-import { Comic } from "../types/Comic.type";
-import ImageComicItem from "./ImageComicItem";
+import { Comic } from "../types/Comic";
 
 interface IComic {
   el: Comic;
 }
 
-export default function ComicListItem({ el }: IComic): ReactElement {
-  console.log(el);
+export default function ComicListItem({ el }: IComic) {
+  const imageUrl = `${el.thumbnail.path}.${el.thumbnail.extension}`;
   return (
     <div>
-      <li style={{ listStyle: "none" }} key={el.id}>
-        <ImageComicItem src={el.thumbnail} description={el.title} />
-        <p>
-          Título: {el.title} | Preço: {el.prices ? el.prices[0].price : 1}
-        </p>
-      </li>
+      <img src={imageUrl} alt={el.title} style={{ height: "250px" }} />
+      <p>
+        Título: {el.title} | Preço: {el.prices ? el.prices[0].price : 1}
+      </p>
     </div>
   );
 }

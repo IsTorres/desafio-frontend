@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ComicsList } from "../types/Comic";
+import { ComicsList } from "../../types/Comic";
 import ComicListItem from "./ComicListItem";
 
 interface IComicsList {

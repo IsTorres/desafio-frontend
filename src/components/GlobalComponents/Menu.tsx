@@ -1,4 +1,4 @@
-import MarvelComicsIcon from "../../public/MarvelComicsIcon.png";
+import MarvelComicsIcon from "../../../public/MarvelComicsIcon.png";
 export default function Menu() {
   return (
     <div>

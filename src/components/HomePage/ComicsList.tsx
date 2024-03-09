@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { fetchComicsWithParams } from "../service";
-import { Comic, ComicsList } from "../types/Comic";
-import { DateDescriptor } from "../utils";
+import { fetchComicsWithParams } from "../../service";
+import { Comic, ComicsList } from "../../types/Comic";
+import { DateDescriptor } from "../../utils";
 import Pagination from "./Pagination";
 
 export default function ComicsList() {

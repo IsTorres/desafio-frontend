@@ -1,4 +1,4 @@
-import { Comic } from "../types/Comic";
+import { Comic } from "../../types/Comic";
 
 interface IComic {
   el: Comic;

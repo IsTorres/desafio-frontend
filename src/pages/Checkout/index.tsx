@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+// import "./index.css";
 
 export default function Checkout() {
   return (
@@ -16,5 +16,5 @@ export default function Checkout() {
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Checkout />
-  </React.StrictMode>,
+  </React.StrictMode>
 );

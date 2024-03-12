@@ -12,7 +12,7 @@ export default function ComicListItem({ el }: IComic) {
     <ListItem>
       <div className="card">
         <div className="card-cover">
-          <a href="/pages/product/">
+          <a href={`/product/${el.id}`}>
             <img className="item" src={imageUrl} alt={el.title} />
             <h5 className="title">Título: {el.title}</h5>
           </a>

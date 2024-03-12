@@ -12,7 +12,7 @@ export default function Menu() {
           </a>
         </div>
         <div className="nav-itens">
-          <a href="/pages/shopping-cart/">ShoppingCart</a>
+          <a href="/shopping-cart/">ShoppingCart</a>
         </div>
       </nav>
     </NavMenu>

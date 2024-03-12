@@ -3,6 +3,7 @@ import { fetchComicsWithParams } from "../../service";
 import { Comic, ComicsList } from "../../types/Comic";
 import { DateDescriptor } from "../../utils";
 import Pagination from "./Pagination";
+import { ComicList } from "./styles";
 
 export default function ComicsList() {
   const [comics, setComics] = useState<Comic[]>([]);
@@ -30,8 +31,8 @@ export default function ComicsList() {
   };
 
   return (
-    <div>
-      <select value={descriptor} onChange={handleSelect}>
+    <ComicList>
+      <select className="select" value={descriptor} onChange={handleSelect}>
         {Object.keys(DateDescriptor).map((key) => {
           return (
             <option key={key} value={key}>
@@ -47,6 +48,6 @@ export default function ComicsList() {
       ) : (
         <p>No comics found.</p>
       )}
-    </div>
+    </ComicList>
   );
 }

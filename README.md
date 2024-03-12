@@ -18,6 +18,7 @@ virtual. Desejam algo moderno, bonito, e que seus usuários não tenham muito
 problema para efetuar a compra. O layout e a arquitetura é com você, seja criativo!
 
 ### Para eles, o essencial para realizar esta tarefa é:
+
 > - Uma listagem paginada das histórias em quadrinhos (HQ's);
 > - Uma página de visualização individual da HQ;
 > - Carrinho de compras;
@@ -44,10 +45,10 @@ problema para efetuar a compra. O layout e a arquitetura é com você, seja cria
 
 > - Código confuso e bagunçado;
 > - Um único commit contendo todas as alterações do projeto. Desejamos ver o
-histórico da implementação das features;
+>   histórico da implementação das features;
 > - Descobrir que o teste não foi feito por você;
 > - Descobrir que seus componentes são componentes prontos de alguma lib
-visual.
+>   visual.
 
 ### Como a avaliação será feita
 
@@ -56,9 +57,10 @@ visual.
 > - Organização, semântica, estrutura e legibilidade do código;
 > - Responsividade;
 > - Verificaremos também seu README. Portanto, capriche! Conte um pouco de
-como você pensou os passos da criação do website.
+>   como você pensou os passos da criação do website.
 
 ## Extras
+
 > - Testes unitários com Vitest ou E2E com Cypress;
 > - Exibir o histórico de pedidos realizados (podem ser armazenados no localstorage ou utilizar json-server api);
 > - Criação de custom hooks;

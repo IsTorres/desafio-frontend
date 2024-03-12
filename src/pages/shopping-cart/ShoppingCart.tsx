@@ -24,5 +24,5 @@ export default function ShoppingCart() {
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ShoppingCart />
-  </React.StrictMode>
+  </React.StrictMode>,
 );

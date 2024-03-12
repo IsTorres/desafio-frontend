@@ -16,5 +16,5 @@ export default function Product() {
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Product />
-  </React.StrictMode>
+  </React.StrictMode>,
 );

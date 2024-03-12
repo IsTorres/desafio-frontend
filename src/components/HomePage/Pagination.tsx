@@ -1,79 +1,75 @@
-import { useState } from "react";
+import { MouseEvent, useRef, useState } from "react";
 import { ComicsList } from "../../types/Comic";
 import ComicListItem from "./ComicListItem";
+import { PaginationDiv } from "./styles";
 
 interface IComicsList {
   data: ComicsList;
 }
 
 const Pagination = ({ data }: IComicsList) => {
-  const [todos] = useState([...data]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const todosPerPage = 10;
+  const [items] = useState([...data]);
+  const [currentPage] = useState(1);
+  const itemsPerPage = 20;
 
-  const handleClick = (pageNumber: number) => {
-    setCurrentPage(pageNumber);
-  };
+  const carousel = useRef<HTMLDivElement>(null);
 
-  const indexOfLastTodo = currentPage * todosPerPage;
-  const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
-  const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
 
-  const renderTodos = currentTodos.map((todo) => (
-    <li key={todo.id} style={{ listStyle: "none" }}>
-      <ComicListItem el={todo} />
-    </li>
+  const renderItems = currentItems.map((item) => (
+    <div key={item.id}>
+      <ComicListItem el={item} />
+    </div>
   ));
 
-  const pageDots = Array.from(
-    { length: Math.ceil(todos.length / todosPerPage) },
-    (_, index) => (
-      <span
-        key={index}
-        onClick={() => handleClick(index + 1)}
-        style={{
-          cursor: "pointer",
-          margin: "0 5px",
-          textDecoration: currentPage === index + 1 ? "underline" : "none",
-        }}
-      >
-        O
-      </span>
-    )
-  );
+  const handleRightClick = (
+    event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+  ) => {
+    event.preventDefault();
+    const { current } = carousel;
+    if (current) {
+      current.scrollTo({
+        left: current.scrollLeft + current.offsetWidth,
+      });
+    }
+  };
+
+  const handleLeftClick = (
+    event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+  ) => {
+    event.preventDefault();
+    const { current } = carousel;
+    if (current) {
+      current.scrollTo({
+        left: current.scrollLeft - current.offsetWidth,
+      });
+    }
+  };
 
   return (
-    <div>
+    <PaginationDiv>
       {data ? (
-        <>
-          <ul>{renderTodos}</ul>
-          <div>
-            <button
-              onClick={() => handleClick(Math.max(1, currentPage - 1))}
-              disabled={currentPage === 1}
-            >
-              Anterior
-            </button>
-            {pageDots}
-            <button
-              onClick={() =>
-                handleClick(
-                  Math.min(
-                    Math.ceil(todos.length / todosPerPage),
-                    currentPage + 1
-                  )
-                )
-              }
-              disabled={currentPage === Math.ceil(todos.length / todosPerPage)}
-            >
-              Próxima
-            </button>
+        <div className="pagination">
+          <button
+            className="btn-carousel -prev"
+            onClick={(e) => handleLeftClick(e)}
+          />
+          <div className="container">
+            <div className="carousel" ref={carousel}>
+              {renderItems}
+            </div>
           </div>
-        </>
+          <button
+            className="btn-carousel -next"
+            onClick={(e) => handleRightClick(e)}
+          />
+        </div>
       ) : (
         <p>Loading</p>
       )}
-    </div>
+    </PaginationDiv>
   );
 };
 

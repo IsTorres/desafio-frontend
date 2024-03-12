@@ -30,9 +30,24 @@ export const fetchComicsWithParams = async (dateDescriptor: string) => {
         ...defaultParams,
       },
     });
+    // console.log(request.data.data.results);
     return request.data.data.results;
   } catch (error) {
     console.error("Erro ao buscar quadrinhos:", error);
     throw error;
   }
+};
+
+export const fetchSpecificComicById = async (id: number) => {
+  // https://gateway.marvel.com:443/v1/public/comics/112887?apikey=4a32cc9eabad270186710953f8d81c44
+  try {
+    const request = await api.get("comics", {
+      params: {
+        ...defaultParams,
+        id,
+      },
+    });
+    // console.log(request);
+    return request;
+  } catch (error) {}
 };

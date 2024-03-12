@@ -1,3 +1,10 @@
+export type ComicsPeriodes = {
+  thisWeek: Comic[];
+  nextWeek: Comic[];
+  lastWeek: Comic[];
+  thisMonth: Comic[];
+};
+
 export type Comic = {
   prices: Prices[];
   id: number;

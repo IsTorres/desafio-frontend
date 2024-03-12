@@ -1,20 +1,33 @@
 import { useEffect, useState } from "react";
 import { fetchComicsWithParams } from "../../service";
-import { Comic, ComicsList } from "../../types/Comic";
-import { DateDescriptor } from "../../utils";
-import Pagination from "./Pagination";
+import { ComicsPeriodes } from "../../types/Comic";
+import ComicsSections from "./ComicsSections";
 import { ComicList } from "./styles";
 
 export default function ComicsList() {
-  const [comics, setComics] = useState<Comic[]>([]);
-  const [descriptor, setDescriptor] = useState<string>("thisWeek");
   const [loading, setLoading] = useState<boolean>(true);
+  const [comics, setComics] = useState<ComicsPeriodes>();
 
-  const load = async () => {
+  const fetchComics = async () => {
+    const newDateDescriptor: (keyof ComicsPeriodes)[] = [
+      "thisWeek",
+      "nextWeek",
+      "lastWeek",
+      "thisMonth",
+    ];
     setLoading(true);
     try {
-      const comicsData = await fetchComicsWithParams(descriptor);
-      setComics(comicsData);
+      const comicsData = await Promise.all(
+        newDateDescriptor.map((descriptor) => fetchComicsWithParams(descriptor))
+      );
+      const comicsObject: ComicsPeriodes = newDateDescriptor.reduce(
+        (acc, descriptor, index) => {
+          acc[descriptor] = comicsData[index];
+          return acc;
+        },
+        {} as ComicsPeriodes
+      );
+      setComics(comicsObject);
     } catch (error) {
       console.error("Error loading comics:", error);
     } finally {
@@ -23,28 +36,18 @@ export default function ComicsList() {
   };
 
   useEffect(() => {
-    load();
-  }, [descriptor]);
-
-  const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setDescriptor(event.target.value);
-  };
+    fetchComics();
+  }, []);
 
   return (
     <ComicList>
-      <select className="select" value={descriptor} onChange={handleSelect}>
-        {Object.keys(DateDescriptor).map((key) => {
-          return (
-            <option key={key} value={key}>
-              {DateDescriptor[key as keyof typeof DateDescriptor]}
-            </option>
-          );
-        })}
-      </select>
       {loading ? (
         <p>Loading...</p>
-      ) : comics.length ? (
-        <Pagination data={comics} />
+      ) : comics ? (
+        <>
+          <h2>Comics</h2>
+          <ComicsSections data={comics} />
+        </>
       ) : (
         <p>No comics found.</p>
       )}

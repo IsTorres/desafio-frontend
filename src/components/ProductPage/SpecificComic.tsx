@@ -2,7 +2,6 @@ import { Comic } from "../../types/Comic";
 import BuyButtonComponent from "../GlobalComponents/BuyButton";
 import { TitleContent } from "../GlobalComponents/styles";
 import { ComicPage } from "./styles";
-import { adicionarEspacos } from "../../utils";
 
 interface Props {
   comic: Comic;
@@ -15,7 +14,7 @@ export default function SpecificComic({ comic }: Props) {
 
   return (
     <ComicPage>
-      <TitleContent>{adicionarEspacos(comic.title)}</TitleContent>
+      <TitleContent>{comic.title}</TitleContent>
       <div className="container">
         <div className="box">
           <img src={comicCoverImg} alt={comic.title} />

@@ -4,6 +4,7 @@ import ComicListItem from "./ComicListItem";
 import { ComicSections, PaginationDiv } from "./styles";
 import arrowIcon from "../../assets/arrowIcon.png";
 import { TitleContent } from "../GlobalComponents/styles";
+import { addSpaces } from "../../utils";
 
 interface IComicsList {
   data: ComicsPeriodes;
@@ -38,7 +39,9 @@ const ComicsSections = ({ data }: IComicsList) => {
 
     return (
       <ComicSections key={sectionName}>
-        <TitleContent className="module-header">{sectionName}</TitleContent>
+        <TitleContent className="module-header">
+          {addSpaces(sectionName)}
+        </TitleContent>
         <div className="section">
           <button className="btn-carousel -prev" onClick={handleLeftClick}>
             <img src={arrowIcon} />

@@ -1,4 +1,4 @@
-export const adicionarEspacos = (str: string) => {
+export const addSpaces = (str: string) => {
   let novaString = "";
   for (let i = 0; i < str.length; i++) {
     // Verifica se o caractere atual é uma letra maiúscula

@@ -1,16 +1,16 @@
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
-import { BuyButton } from "./styles";
+import { Buttons, BuyButton, ActionButtons } from "./styles";
 
 export default function BuyButtonComponent() {
   return (
-    <BuyButton className="card-info">
-      <button>
+    <Buttons>
+      <ActionButtons>
         <FaMinusCircle />
-      </button>
-      <button className="buy-button">Comprar</button>
-      <button>
+      </ActionButtons>
+      <BuyButton>Buy</BuyButton>
+      <ActionButtons>
         <FaPlusCircle />
-      </button>
-    </BuyButton>
+      </ActionButtons>
+    </Buttons>
   );
 }

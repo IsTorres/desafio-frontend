@@ -1,7 +1,15 @@
 import { Comic } from "../../types/Comic";
+import { addSpaces } from "../../utils";
 import BuyButtonComponent from "../GlobalComponents/BuyButton";
 import { TitleContent } from "../GlobalComponents/styles";
-import { ComicPage } from "./styles";
+import {
+  ComicPage,
+  Container,
+  Content,
+  Box,
+  Creators,
+  CreatorsInfo,
+} from "./styles";
 
 interface Props {
   comic: Comic;
@@ -15,27 +23,41 @@ export default function SpecificComic({ comic }: Props) {
   return (
     <ComicPage>
       <TitleContent>{comic.title}</TitleContent>
-      <div className="container">
-        <div className="box">
+      <Container>
+        <Box>
           <img src={comicCoverImg} alt={comic.title} />
-          <div className="content">
-            <h2>Description:</h2>
-            <p>{comic.description || "No description available"}</p>
-            <h2>Creators:</h2>
-            <div className="creators">
-              {comic.creators.items.map(
-                (creator: { name: string; role: string }) => (
-                  <div className="creators-info" key={creator.name}>
-                    <h5>{creator.name}</h5>
-                    <h5>{creator.role}</h5>
-                  </div>
-                )
-              )}
+          <Content>
+            <div>
+              <h2>Description:</h2>
+              <p>{comic.description || "No description available"}</p>
+            </div>
+            <div>
+              <h2>Creators:</h2>
+              <Creators>
+                {comic.creators.items.map(
+                  (creator: { name: string; role: string }) => (
+                    <CreatorsInfo key={creator.name}>
+                      <h5>{creator.name}</h5>
+                      <p>{creator.role}</p>
+                    </CreatorsInfo>
+                  )
+                )}
+              </Creators>
+            </div>
+            <div>
+              <h2>Prices</h2>
+              {comic.prices.map(({ price, type }) => {
+                return (
+                  <p key={price + type}>
+                    {addSpaces(type).toLowerCase()}: {price}
+                  </p>
+                );
+              })}
             </div>
             <BuyButtonComponent />
-          </div>
-        </div>
-      </div>
+          </Content>
+        </Box>
+      </Container>
     </ComicPage>
   );
 }

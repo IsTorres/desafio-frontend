@@ -14,7 +14,6 @@ export default function Product() {
     setLoading(true);
     try {
       const [comicData] = await fetchSpecificComicById(id);
-      console.log(comicData);
       setComicInfo(comicData);
     } catch (error) {
       console.error("Comic not found", error);

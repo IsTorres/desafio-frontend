@@ -37,7 +37,7 @@ export const fetchComicsWithParams = async (dateDescriptor: string) => {
   }
 };
 
-export const fetchSpecificComicById = async (id: number) => {
+export const fetchSpecificComicById = async (id: string) => {
   try {
     const request = await api.get("comics", {
       params: {
@@ -45,6 +45,9 @@ export const fetchSpecificComicById = async (id: number) => {
         id,
       },
     });
-    return request;
-  } catch (error) {}
+    return request.data.data.results;
+  } catch (error) {
+    console.error("Erro ao buscar quadrinho:", error);
+    throw error;
+  }
 };

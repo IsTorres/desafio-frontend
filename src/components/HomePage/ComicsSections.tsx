@@ -1,7 +1,9 @@
 import React, { useRef } from "react";
 import { ComicsPeriodes } from "../../types/Comic";
 import ComicListItem from "./ComicListItem";
-import { PaginationDiv } from "./styles";
+import { ComicSections, PaginationDiv } from "./styles";
+import arrowIcon from "../../assets/arrowIcon.png";
+import { TitleContent } from "../GlobalComponents/styles";
 
 interface IComicsList {
   data: ComicsPeriodes;
@@ -35,13 +37,12 @@ const ComicsSections = ({ data }: IComicsList) => {
     };
 
     return (
-      <section key={sectionName}>
-        <h2>{sectionName}</h2>
-        <div style={{ display: "flex" }}>
-          <button
-            className="btn-carousel -prev"
-            onClick={handleLeftClick}
-          ></button>
+      <ComicSections key={sectionName}>
+        <TitleContent className="module-header">{sectionName}</TitleContent>
+        <div className="section">
+          <button className="btn-carousel -prev" onClick={handleLeftClick}>
+            <img src={arrowIcon} />
+          </button>
           <div className="container">
             <div className="carousel" ref={carouselRef}>
               {comics.map((el) => (
@@ -51,18 +52,17 @@ const ComicsSections = ({ data }: IComicsList) => {
               ))}
             </div>
           </div>
-          <button
-            className="btn-carousel -next"
-            onClick={handleRightClick}
-          ></button>
+          <button className="btn-carousel -next" onClick={handleRightClick}>
+            <img src={arrowIcon} />
+          </button>
         </div>
-      </section>
+      </ComicSections>
     );
   });
 
   return (
-    <PaginationDiv>
-      {data ? <div className="pagination">{sections}</div> : <p>Loading</p>}
+    <PaginationDiv className="pagination">
+      {data ? <>{sections}</> : <p>Loading</p>}
     </PaginationDiv>
   );
 };

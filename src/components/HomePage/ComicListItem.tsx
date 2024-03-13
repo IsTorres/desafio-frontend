@@ -1,6 +1,7 @@
 import { Comic } from "../../types/Comic";
+import BuyButtonComponent from "../GlobalComponents/BuyButton";
 import { ListItem } from "./styles";
-import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
+// import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 
 interface IComic {
   el: Comic;
@@ -18,15 +19,7 @@ export default function ComicListItem({ el }: IComic) {
           </a>
           <p>U${el.prices ? el.prices[0].price : 1}</p>
         </div>
-        <div className="card-info">
-          <button>
-            <FaMinusCircle />
-          </button>
-          <button className="buy-button">Comprar</button>
-          <button>
-            <FaPlusCircle />
-          </button>
-        </div>
+        <BuyButtonComponent />
       </div>
     </ListItem>
   );

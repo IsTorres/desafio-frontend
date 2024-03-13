@@ -8,10 +8,10 @@ export default function ShoppingCart() {
       <h1>Shopping Cart</h1>
       <ul>
         <li>
-          <a href="/pages/product/">Product</a>
+          <a href="/product/">Product</a>
         </li>
         <li>
-          <a href="/pages/checkout/">Checkout</a>
+          <a href="/checkout/">Checkout</a>
         </li>
         <li>
           <a href="/">home</a>
@@ -20,9 +20,3 @@ export default function ShoppingCart() {
     </>
   );
 }
-
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <ShoppingCart />
-  </React.StrictMode>
-);

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { fetchComicsWithParams } from "../../service";
 import { ComicsPeriodes } from "../../types/Comic";
-import ComicsSections from "./ComicsSections";
-import { ComicList } from "./styles";
+import ComicsSections from "../../components/HomePage/ComicsSections";
+import { ComicList } from "../../components/HomePage/styles";
 
-export default function ComicsList() {
+export default function Home() {
   const [loading, setLoading] = useState<boolean>(true);
   const [comics, setComics] = useState<ComicsPeriodes>();
 
@@ -45,7 +45,7 @@ export default function ComicsList() {
         <p>Loading...</p>
       ) : comics ? (
         <>
-          <h2>Comics</h2>
+          {/* <TitleContent className="module-header">Comics</TitleContent> */}
           <ComicsSections data={comics} />
         </>
       ) : (

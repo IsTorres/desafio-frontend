@@ -14,10 +14,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(root, "index.html"),
-        product: resolve(root, "pages/product/index.html"),
-        shopping_cart: resolve(root, "pages/shopping-cart/index.html"),
-        checkout: resolve(root, "pages/checkout/index.html"),
-        //outher pages -> pageName: resolve(root, 'page-path/index.html'),
       },
     },
   },

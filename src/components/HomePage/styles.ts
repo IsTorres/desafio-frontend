@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import arrowIcon from "../../assets/arrowIcon.png";
 
 export const PaginationDiv = styled.div`
   .pagination {
@@ -25,25 +24,21 @@ export const PaginationDiv = styled.div`
   }
 
   .btn-carousel {
-    background-color: #242424;
+    background-color: transparent;
     background-repeat: no-repeat;
     background-position: center;
     padding: 45px 35px;
+    border: transparent;
   }
 
-  .-next {
-    background-image: url(${arrowIcon});
-  }
   .-prev {
-    background-image: url(${arrowIcon});
     transform: scaleX(-1);
   }
 
-  .btn-carousel.-next:hover,
-  .btn-carousel.-prev:hover {
-    background-color: #fff;
-    transition: 0.5s;
-    border-color: #242424;
+  .-prev:hover img,
+  .-next:hover img {
+    transition: 1s;
+    width: 120%;
   }
 
   @media (max-width: 768px) {
@@ -59,13 +54,17 @@ export const PaginationDiv = styled.div`
   }
 `;
 
-export const ComicList = styled.div`
-  .select {
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+export const ComicSections = styled.section`
+  .section {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
   }
+`;
+
+export const ComicList = styled.div`
+  width: fit-content;
+  margin: auto;
 `;
 
 export const ListItem = styled.div`
@@ -115,27 +114,7 @@ export const ListItem = styled.div`
   }
 
   .card .card-info button {
-    padding: 0.6em 1em;
-  }
-
-  .card .card-info button {
     border: none;
-  }
-
-  .card .card-info .buy-button {
-    background-color: #ff0000;
-  }
-
-  .card .card-info .buy-button p {
-    font:
-      normal 13px / 1.2 "Roboto",
-      "Trebuchet MS",
-      Helvetica,
-      Arial,
-      sans-serif;
-    letter-spacing: 0;
-    text-align: left;
-    color: #fff;
   }
 
   /* @media (max-width: 768px) {

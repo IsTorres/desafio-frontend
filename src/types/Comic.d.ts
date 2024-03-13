@@ -6,6 +6,7 @@ export type ComicsPeriodes = {
 };
 
 export type Comic = {
+  creators: any;
   prices: Prices[];
   id: number;
   title: string;

@@ -1,22 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-// import "./index.css";
+import ShoppingList from "../../components/ShoppingCartPage/ShoppingList";
 
 export default function ShoppingCart() {
+  // const { productsCart, addProduct, removeProduct, cleanCart } =
+  //   useContext(GlobalContext);
   return (
     <>
       <h1>Shopping Cart</h1>
-      <ul>
-        <li>
-          <a href="/product/">Product</a>
-        </li>
-        <li>
-          <a href="/checkout/">Checkout</a>
-        </li>
-        <li>
-          <a href="/">home</a>
-        </li>
-      </ul>
+      <ShoppingList />
     </>
   );
 }

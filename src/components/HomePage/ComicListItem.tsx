@@ -1,7 +1,6 @@
 import { Comic } from "../../types/Comic";
 import BuyButtonComponent from "../GlobalComponents/BuyButton";
 import { ListItem } from "./styles";
-// import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 
 interface IComic {
   el: Comic;
@@ -9,7 +8,6 @@ interface IComic {
 
 export default function ComicListItem({ el }: IComic) {
   const imageUrl = `${el.thumbnail.path}.${el.thumbnail.extension}`;
-  // console.log(el.id);
   return (
     <ListItem>
       <div className="card">

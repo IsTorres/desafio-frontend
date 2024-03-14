@@ -11,7 +11,7 @@ type ContextProps = {
   clearCart: () => void;
 };
 
-export const GlobalContext = createContext({} as ContextProps);
+export const AppContext = createContext({} as ContextProps);
 
 export const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
   const myState = JSON.parse(localStorage.getItem("myState") || "[]");
@@ -55,7 +55,5 @@ export const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
 
   const value = { productsCart, addProduct, removeProduct, clearCart };
 
-  return (
-    <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>
-  );
+  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

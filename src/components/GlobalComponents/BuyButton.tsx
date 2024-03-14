@@ -1,20 +1,13 @@
-import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
-import { Buttons, BuyButton, ActionButtons } from "./styles";
-import { GlobalContext } from "../../contexts/GlobalContext";
 import { useContext } from "react";
+import { AppContext } from "../../contexts/GlobalContext";
+import { Buttons, BuyButton } from "./styles";
 
 export default function BuyButtonComponent({ id }: { id: number }) {
-  const { addProduct } = useContext(GlobalContext);
+  const { addProduct } = useContext(AppContext);
 
   return (
     <Buttons>
-      {/* <ActionButtons onClick={() => removeProduct(id)}>
-        <FaMinusCircle />
-      </ActionButtons> */}
       <BuyButton onClick={() => addProduct(id)}>Add to Cart</BuyButton>
-      {/* <ActionButtons onClick={() => addProduct(id)}>
-        <FaPlusCircle />
-      </ActionButtons> */}
     </Buttons>
   );
 }

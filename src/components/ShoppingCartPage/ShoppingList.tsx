@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { AppContext } from "../../contexts/GlobalContext";
+
 export default function ShoppingList() {
+  const { clearCart } = useContext(AppContext);
   const myState = JSON.parse(localStorage.getItem("myState") || "{}");
   return (
     <>
@@ -7,6 +11,8 @@ export default function ShoppingList() {
       ) : (
         <p>{JSON.stringify(myState)}</p>
       )}
+
+      <button onClick={clearCart}>clear Cart</button>
     </>
   );
 }

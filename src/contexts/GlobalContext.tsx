@@ -9,11 +9,16 @@ type ContextProps = {
   addProduct: (id: number) => void;
   removeProduct: (id: number) => void;
   clearCart: () => void;
+  sumQtd: () => number;
 };
 
 export const AppContext = createContext({} as ContextProps);
 
-export const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
+export default function GlobalProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const myState = JSON.parse(localStorage.getItem("myState") || "[]");
   const [productsCart, setProductsCart] = useState<itemCart[]>(myState);
 
@@ -45,15 +50,21 @@ export const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
         (product) => product.id !== id
       );
       setProductsCart(arrayFiltered);
+      localStorage.setItem("myState", JSON.stringify(arrayFiltered));
     }
   };
 
   const clearCart = () => {
     console.log(productsCart, "clear");
     setProductsCart([]);
+    localStorage.setItem("myState", JSON.stringify([]));
   };
 
-  const value = { productsCart, addProduct, removeProduct, clearCart };
+  const sumQtd = () => {
+    return productsCart.reduce((acc, item) => item.qtd + acc, 0);
+  };
+
+  const value = { productsCart, addProduct, removeProduct, clearCart, sumQtd };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
-};
+}

@@ -16,7 +16,6 @@ export default function Home() {
         <p>Loading...</p>
       ) : comics ? (
         <>
-          {/* <TitleContent className="module-header">Comics</TitleContent> */}
           <ComicsSections data={comics} />
         </>
       ) : (

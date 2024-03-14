@@ -1,6 +1,6 @@
 import { Comic } from "../../types/Comic";
 import BuyButtonComponent from "../GlobalComponents/BuyButton";
-import { ListItem } from "./styles";
+import { Title, Card, CardCover } from "./styles";
 
 interface IComic {
   el: Comic;
@@ -9,17 +9,17 @@ interface IComic {
 export default function ComicListItem({ el }: IComic) {
   const imageUrl = `${el.thumbnail.path}.${el.thumbnail.extension}`;
   return (
-    <ListItem>
-      <div className="card">
-        <div className="card-cover">
-          <a href={`/product/${el.id}`}>
-            <img className="item" src={imageUrl} alt={el.title} />
-            <h5 className="title">{el.title}</h5>
-          </a>
-          <p>U${el.prices ? el.prices[0].price : 1}</p>
-        </div>
-        <BuyButtonComponent id={el.id} />
-      </div>
-    </ListItem>
+    // <ListItem>
+    <Card>
+      <CardCover>
+        <a href={`/product/${el.id}`}>
+          <img src={imageUrl} alt={el.title} />
+          <Title>{el.title}</Title>
+        </a>
+        <p>U${el.prices ? el.prices[0].price : 1}</p>
+      </CardCover>
+      <BuyButtonComponent id={el.id} />
+    </Card>
+    // </ListItem>
   );
 }

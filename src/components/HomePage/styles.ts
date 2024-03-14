@@ -1,65 +1,64 @@
 import styled from "styled-components";
 
-export const PaginationDiv = styled.div`
-  .pagination {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-  }
+export const Pagination = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+`;
+export const Container = styled.div`
+  max-width: 75vw;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  overflow: hidden;
+`;
+export const Carousel = styled.div`
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+`;
+// export const PaginationDiv = styled.div`
+// .btn-carousel {
+//   background-color: transparent;
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   padding: 45px 35px;
+//   border: transparent;
+// }`
 
-  .container {
-    max-width: 75vw;
-    -webkit-font-smoothing: antialiased;
-    -webkit-overflow-scrolling: touch;
-    width: 100%;
-    overflow: hidden;
-  }
+export const BtnCarousel = styled.button`
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 45px 35px;
+  border: transparent;
+  transform: scaleX(-1);
 
-  .container .carousel {
-    display: flex;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-  }
-
-  .btn-carousel {
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 45px 35px;
-    border: transparent;
-  }
-
-  .-prev {
-    transform: scaleX(-1);
-  }
-
-  .-prev:hover img,
-  .-next:hover img {
+  :hover {
     transition: 1s;
     width: 120%;
   }
 
   @media (max-width: 768px) {
-    .btn-carousel {
-      display: none;
-    }
-
-    li {
-      list-style: none;
-      width: 35%;
-      padding: 0 15px;
-    }
+    display: none;
   }
+
+  li {
+    list-style: none;
+    width: 35%;
+    padding: 0 15px;
+  }
+`;
+export const BtnCarouselNext = styled(BtnCarousel)`
+  transform: none;
 `;
 
 export const ComicSections = styled.section`
-  .section {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-  }
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 `;
 
 export const ComicList = styled.div`
@@ -67,53 +66,64 @@ export const ComicList = styled.div`
   margin: auto;
 `;
 
-export const ListItem = styled.div`
-  .title {
-    text-align: left;
-    color: #fff;
-    font:
-      800 15px / 1.2 "Roboto Bold",
-      "Trebuchet MS",
-      Helvetica,
-      Arial,
-      sans-serif;
-    margin: auto;
-  }
+export const Title = styled.h5`
+  text-align: left;
+  color: #242424;
+  font:
+    800 15px / 1.2 "Roboto Bold",
+    "Trebuchet MS",
+    Helvetica,
+    Arial,
+    sans-serif;
+  margin-top: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: 0.7s;
 
-  .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 215px;
-    margin: 10px;
-    padding: 10px;
+  :hover {
+    color: red;
   }
+`;
 
-  .card .card-cover {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 460px;
-  }
+export const Card = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 215px;
+  margin: 10px;
+  padding: 10px;
+`;
+export const CardCover = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 400px;
 
-  .card .card-cover img {
+  img {
     width: 100%;
     height: auto;
     object-fit: cover;
+    box-shadow: 0 26px 24px -16px rgba(0, 0, 0, 0.4);
+    transition: all 0.17s ease-in-out;
   }
 
-  .card .card-cover p {
+  img:hover {
+    margin-top: -10px;
+  }
+
+  p {
+    margin-top: 10px;
     margin: 0px 10px;
     font-family: fantasy;
     font-size: x-large;
   }
+`;
+export const CardInfo = styled.div`
+  display: flex;
+  justify-content: space-between;
 
-  .card .card-info {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .card .card-info button {
+  button {
     border: none;
   }
 

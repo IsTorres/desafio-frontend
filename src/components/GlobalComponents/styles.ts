@@ -20,14 +20,18 @@ export const Logo = styled.div`
 `;
 
 export const Cart = styled.div`
+  width: 40px;
+  height: 35px;
   position: absolute;
   right: 5%;
   top: 30%;
-  font-size: xxx-large;
-  padding: 0;
+  font-size: 25px;
+  padding-top: 5px;
+  border-radius: 30px;
+  background: yellow;
 
   a {
-    color: yellow;
+    color: #242424;
   }
   @media (max-width: 768px) {
     right: 5%;
@@ -35,13 +39,15 @@ export const Cart = styled.div`
 `;
 
 export const CountDot = styled.div`
-  color: white;
-  font-size: 15px;
+  color: #242424;
+  font-weight: 900;
+  font-size: 12px;
   position: absolute;
-  bottom: 15%;
+  bottom: -10%;
   right: -10%;
-  background: red;
-  padding: 0px 8px;
+  background: white;
+  padding: 0px 6px;
+  border: 1px #242424 solid;
   border-radius: 20px;
 `;
 
@@ -98,6 +104,7 @@ export const TitleContent = styled.h1`
 
 export const Buttons = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
   margin-top: 20px;
 `;
@@ -119,7 +126,9 @@ export const BuyButton = styled.button`
 `;
 
 export const ActionButtons = styled.button`
-  background-color: transparent;
-  font-size: x-large;
-  padding: 0 10px;
+  background-color: #242424;
+  font-size: larger;
+  padding: 6px 8px 3px;
+  border-radius: 40px;
+  margin: 10px;
 `;

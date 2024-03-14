@@ -1,7 +1,14 @@
 import React, { useRef } from "react";
 import { ComicsPeriodes } from "../../types/Comic";
 import ComicListItem from "./ComicListItem";
-import { ComicSections, PaginationDiv } from "./styles";
+import {
+  ComicSections,
+  Pagination,
+  Container,
+  Carousel,
+  BtnCarouselNext,
+  BtnCarousel,
+} from "./styles";
 import arrowIcon from "../../assets/arrowIcon.png";
 import { TitleContent } from "../GlobalComponents/styles";
 import { addSpaces } from "../../utils";
@@ -38,36 +45,30 @@ const ComicsSections = ({ data }: IComicsList) => {
     };
 
     return (
-      <ComicSections key={sectionName}>
-        <TitleContent className="module-header">
-          {addSpaces(sectionName)}
-        </TitleContent>
-        <div className="section">
-          <button className="btn-carousel -prev" onClick={handleLeftClick}>
+      <div key={sectionName}>
+        <TitleContent>{addSpaces(sectionName)}</TitleContent>
+        <ComicSections>
+          <BtnCarousel onClick={handleLeftClick}>
             <img src={arrowIcon} />
-          </button>
-          <div className="container">
-            <div className="carousel" ref={carouselRef}>
+          </BtnCarousel>
+          <Container>
+            <Carousel ref={carouselRef}>
               {comics.map((el) => (
                 <div key={el.id}>
                   <ComicListItem el={el} />
                 </div>
               ))}
-            </div>
-          </div>
-          <button className="btn-carousel -next" onClick={handleRightClick}>
+            </Carousel>
+          </Container>
+          <BtnCarouselNext onClick={handleRightClick}>
             <img src={arrowIcon} />
-          </button>
-        </div>
-      </ComicSections>
+          </BtnCarouselNext>
+        </ComicSections>
+      </div>
     );
   });
 
-  return (
-    <PaginationDiv className="pagination">
-      {data ? <>{sections}</> : <p>Loading</p>}
-    </PaginationDiv>
-  );
+  return <Pagination>{data ? <>{sections}</> : <p>Loading</p>}</Pagination>;
 };
 
 export default ComicsSections;

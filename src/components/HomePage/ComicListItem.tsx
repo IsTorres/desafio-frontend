@@ -9,17 +9,18 @@ interface IComic {
 
 export default function ComicListItem({ el }: IComic) {
   const imageUrl = `${el.thumbnail.path}.${el.thumbnail.extension}`;
+  // console.log(el.id);
   return (
     <ListItem>
       <div className="card">
         <div className="card-cover">
           <a href={`/product/${el.id}`}>
             <img className="item" src={imageUrl} alt={el.title} />
-            <h5 className="title">Título: {el.title}</h5>
+            <h5 className="title">{el.title}</h5>
           </a>
           <p>U${el.prices ? el.prices[0].price : 1}</p>
         </div>
-        <BuyButtonComponent />
+        <BuyButtonComponent id={el.id} />
       </div>
     </ListItem>
   );

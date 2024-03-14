@@ -54,7 +54,7 @@ export default function SpecificComic({ comic }: Props) {
                 );
               })}
             </div>
-            <BuyButtonComponent />
+            <BuyButtonComponent id={comic.id} />
           </Content>
         </Box>
       </Container>

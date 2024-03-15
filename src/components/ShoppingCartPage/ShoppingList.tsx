@@ -3,6 +3,7 @@ import { useFetchArrayComics } from "../../hooks/useFetchArrayComics";
 import { comicCoverImg, myState } from "../../utils";
 import ActionButtons from "../GlobalComponents/ActionButtons";
 import { InfoDivCard, ShoppingItemCard } from "./styles";
+import { ThreeCircles } from "react-loader-spinner";
 
 export default function ShoppingList() {
   const { comicArrayInfo, getComicArray } = useFetchArrayComics();
@@ -19,7 +20,15 @@ export default function ShoppingList() {
   return (
     <>
       {isLoading ? (
-        <h2>Loading</h2>
+        <ThreeCircles
+          visible={true}
+          height="100"
+          width="100"
+          color="#ff0000"
+          ariaLabel="three-circles-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+        />
       ) : (
         <ShoppingItemCard>
           {comicArrayInfo.map((item) => {

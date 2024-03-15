@@ -12,6 +12,7 @@ import {
 import arrowIcon from "../../assets/arrowIcon.png";
 import { TitleContent } from "../GlobalComponents/styles";
 import { addSpaces } from "../../utils";
+import { ThreeCircles } from "react-loader-spinner";
 
 interface IComicsList {
   data: ComicsPeriodes;
@@ -68,7 +69,23 @@ const ComicsSections = ({ data }: IComicsList) => {
     );
   });
 
-  return <Pagination>{data ? <>{sections}</> : <p>Loading</p>}</Pagination>;
+  return (
+    <Pagination>
+      {data ? (
+        <>{sections}</>
+      ) : (
+        <ThreeCircles
+          visible={true}
+          height="100"
+          width="100"
+          color="#ff0000"
+          ariaLabel="three-circles-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+        />
+      )}
+    </Pagination>
+  );
 };
 
 export default ComicsSections;

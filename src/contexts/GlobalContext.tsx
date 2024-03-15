@@ -2,11 +2,12 @@ import { createContext, useState } from "react";
 type itemCart = {
   id: number;
   qtd: number;
+  price: number;
 };
 
 type ContextProps = {
   productsCart: itemCart[];
-  addProduct: (id: number) => void;
+  addProduct: (id: number, price: number) => void;
   removeProduct: (id: number) => void;
   clearCart: () => void;
   sumQtd: () => number;
@@ -22,7 +23,7 @@ export default function GlobalProvider({
   const myState = JSON.parse(localStorage.getItem("myState") || "[]");
   const [productsCart, setProductsCart] = useState<itemCart[]>(myState);
 
-  const addProduct = (id: number) => {
+  const addProduct = (id: number, price: number) => {
     const updatedProductsCart = [...productsCart];
     const existingProductIndex = updatedProductsCart.findIndex(
       (product) => product.id === id
@@ -30,7 +31,7 @@ export default function GlobalProvider({
 
     if (existingProductIndex === -1) {
       // Se o produto não existe no carrinho, adicionamos ele com quantidade 1
-      updatedProductsCart.push({ id, qtd: 1 });
+      updatedProductsCart.push({ id, qtd: 1, price });
     } else {
       // Se o produto já existe no carrinho, incrementamos apenas a quantidade
       updatedProductsCart[existingProductIndex].qtd += 1;
@@ -62,9 +63,9 @@ export default function GlobalProvider({
   };
 
   const clearCart = () => {
-    console.log(productsCart, "clear");
     setProductsCart([]);
     localStorage.setItem("myState", JSON.stringify([]));
+    console.log(productsCart, "clear");
   };
 
   const sumQtd = () => {

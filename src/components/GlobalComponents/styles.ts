@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Logo = styled.div`
   a img {
-    padding: 0 5%;
+    padding: 2% 0;
     width: 10%;
     &:before {
       background-color: #c6a972;
@@ -15,6 +15,12 @@ export const Logo = styled.div`
       left: 49%;
       top: -5px;
       transform-origin: left bottom;
+    }
+  }
+
+  @media (max-width: 768px) {
+    a img {
+      width: 20%;
     }
   }
 `;
@@ -100,25 +106,24 @@ export const TitleContent = styled.h1`
 
 export const Btns = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   margin-top: 20px;
+
+  div {
+    margin: "0 10px";
+  }
+
+  h4 {
+    font-size: x-large;
+    margin: auto;
+  }
 `;
 
 export const BuyBtn = styled.button`
   background-color: #ff0000;
-
-  p {
-    font:
-      normal 13px / 1.2 "Roboto",
-      "Trebuchet MS",
-      Helvetica,
-      Arial,
-      sans-serif;
-    letter-spacing: 0;
-    text-align: left;
-    color: #fff;
-  }
+  font-size: 30px;
+  padding: 15px;
 `;
 
 export const ActionBtn = styled.button`

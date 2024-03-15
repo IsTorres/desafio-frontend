@@ -22,13 +22,14 @@ export const ShoppingItemCard = styled.div`
     width: 210px;
     height: 310px;
     border-radius: 10px;
-    margin: 2%;
+    margin: 1% 3%;
   }
 
   @media (max-width: 768px) {
     section {
       flex-direction: column;
       align-items: center;
+      width: auto;
     }
   }
 `;
@@ -37,6 +38,10 @@ export const InfoDivCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+
+  h2 {
+    font-size: 25px;
+  }
 `;
 
 export const ActionBtnsDiv = styled.div`

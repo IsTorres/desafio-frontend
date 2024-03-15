@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
 import { useFetchArrayComics } from "../../hooks/useFetchArrayComics";
-import { Comic } from "../../types/Comic";
-import { comicCoverImg } from "../../utils";
+import { comicCoverImg, myState } from "../../utils";
 import ActionButtons from "../GlobalComponents/ActionButtons";
-import { ActionBtnsDiv, InfoDivCard, ShoppingItemCard } from "./styles";
+import { InfoDivCard, ShoppingItemCard } from "./styles";
 
 export default function ShoppingList() {
   const [fetchCalled, setFetchCalled] = useState<boolean>(false);
-  const myState: { id: number; qtd: number }[] = JSON.parse(
-    localStorage.getItem("myState") || "{}"
-  );
 
   const { comicArrayInfo, getComicArray } = useFetchArrayComics();
 
@@ -24,18 +20,15 @@ export default function ShoppingList() {
 
   return (
     <>
-      {myState.length < 1 ? (
-        <p>The Cart is empty</p>
-      ) : comicArrayInfo ? (
+      {comicArrayInfo ? (
         <>
-          <p>{JSON.stringify(myState)}</p>
           <ShoppingItemCard>
             {comicArrayInfo.map((item) => {
               return (
                 <section key={item.id}>
                   <img src={comicCoverImg(item)} alt={item.title} />
                   <InfoDivCard>
-                    <h3>{item.title}</h3>
+                    <h2>{item.title}</h2>
                     <ActionButtons item={item} />
                   </InfoDivCard>
                 </section>
@@ -44,7 +37,7 @@ export default function ShoppingList() {
           </ShoppingItemCard>
         </>
       ) : (
-        <p>Loading</p>
+        <h2>Loading</h2>
       )}
     </>
   );

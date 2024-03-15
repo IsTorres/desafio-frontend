@@ -59,6 +59,7 @@ export default function GlobalProvider({
     } else {
       // Se o produto não existe no carrinho ou a quantidade é 1, removemos o produto do carrinho
       updatedProductsCart.splice(existingProductIndex, 1);
+      window.location.reload();
     }
 
     setProductsCart(updatedProductsCart);
@@ -68,7 +69,7 @@ export default function GlobalProvider({
   const clearCart = () => {
     setProductsCart([]);
     localStorage.setItem("myState", JSON.stringify([]));
-    console.log(productsCart, "clear");
+    window.location.reload();
   };
 
   const sumQtd = () => {

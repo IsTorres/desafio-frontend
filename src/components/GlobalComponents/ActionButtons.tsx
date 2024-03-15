@@ -7,10 +7,9 @@ import { Btns, BuyBtn } from "./styles";
 export default function ActionButtons({ item }: { item: Comic }) {
   const { addProduct, removeProduct, showQtd } = useContext(AppContext);
 
-  console.log(showQtd(item.id), "action");
-
   return (
     <Btns>
+      {/* remove itens */}
       <BuyBtn onClick={() => removeProduct(item.id)}>
         <FaCircleMinus />
       </BuyBtn>
@@ -18,7 +17,8 @@ export default function ActionButtons({ item }: { item: Comic }) {
         <h4>Units: {showQtd(item.id)}</h4>
         <h4>Price: U${item.prices[0].price}</h4>
       </div>
-      <BuyBtn onClick={() => addProduct(item.id, 10)}>
+      {/* adiciona itens */}
+      <BuyBtn onClick={() => addProduct(item.id, item.prices[0].price)}>
         <FaCirclePlus />
       </BuyBtn>
     </Btns>

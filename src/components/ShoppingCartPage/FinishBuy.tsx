@@ -9,7 +9,6 @@ export default function FinishBuy() {
     return acc + item.price * item.qtd;
   }, 0);
 
-  //   console.log(productsCart);
   return (
     <FinishBuyDiv>
       <button

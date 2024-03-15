@@ -23,35 +23,42 @@ export default function GlobalProvider({
   const [productsCart, setProductsCart] = useState<itemCart[]>(myState);
 
   const addProduct = (id: number) => {
-    const copyProductsCart = [...productsCart];
+    const updatedProductsCart = [...productsCart];
+    const existingProductIndex = updatedProductsCart.findIndex(
+      (product) => product.id === id
+    );
 
-    const item = copyProductsCart.find((product) => product.id === id);
-
-    if (!item) {
-      copyProductsCart.push({ id, qtd: 1 });
+    if (existingProductIndex === -1) {
+      // Se o produto não existe no carrinho, adicionamos ele com quantidade 1
+      updatedProductsCart.push({ id, qtd: 1 });
     } else {
-      item.qtd += 1;
+      // Se o produto já existe no carrinho, incrementamos apenas a quantidade
+      updatedProductsCart[existingProductIndex].qtd += 1;
     }
 
-    setProductsCart(copyProductsCart);
-    localStorage.setItem("myState", JSON.stringify(copyProductsCart));
-    console.log(copyProductsCart, "asdf");
+    setProductsCart(updatedProductsCart);
+    localStorage.setItem("myState", JSON.stringify(updatedProductsCart));
   };
 
   const removeProduct = (id: number) => {
-    const copyProductCart = [...productsCart];
+    const updatedProductsCart = [...productsCart];
+    const existingProductIndex = updatedProductsCart.findIndex(
+      (product) => product.id === id
+    );
 
-    const item = copyProductCart.find((product) => product.id === id);
-    if (item && item.qtd > 1) {
-      item.qtd -= 1;
-      setProductsCart(copyProductCart);
+    if (
+      existingProductIndex !== -1 &&
+      updatedProductsCart[existingProductIndex].qtd > 1
+    ) {
+      // Se o produto existe no carrinho e a quantidade é maior que 1, decrementamos a quantidade
+      updatedProductsCart[existingProductIndex].qtd -= 1;
     } else {
-      const arrayFiltered = copyProductCart.filter(
-        (product) => product.id !== id
-      );
-      setProductsCart(arrayFiltered);
-      localStorage.setItem("myState", JSON.stringify(arrayFiltered));
+      // Se o produto não existe no carrinho ou a quantidade é 1, removemos o produto do carrinho
+      updatedProductsCart.splice(existingProductIndex, 1);
     }
+
+    setProductsCart(updatedProductsCart);
+    localStorage.setItem("myState", JSON.stringify(updatedProductsCart));
   };
 
   const clearCart = () => {

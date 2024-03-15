@@ -12,7 +12,7 @@ export const useFetchSpecificComic = () => {
   const getComic = async (id: string) => {
     setLoading(true);
     try {
-      const [comicData] = await fetchSpecificComicById(id);
+      const comicData: Comic = await fetchSpecificComicById(id);
       setComicInfo(comicData);
     } catch (error) {
       console.error("Comic not found", error);

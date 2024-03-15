@@ -1,5 +1,6 @@
+import { url } from "inspector";
 import { Comic } from "../../types/Comic";
-import { addSpaces } from "../../utils";
+import { addSpaces, comicCoverImg } from "../../utils";
 import BuyButtonComponent from "../GlobalComponents/BuyButton";
 import { TitleContent } from "../GlobalComponents/styles";
 import {
@@ -18,14 +19,12 @@ interface Props {
 export default function SpecificComic({ comic }: Props) {
   if (!comic) return null;
 
-  const comicCoverImg = `${comic.thumbnail.path}.${comic.thumbnail.extension}`;
-
   return (
     <ComicPage>
       <TitleContent>{comic.title}</TitleContent>
-      <Container>
+      <Container style={{ backgroundImage: `url(${comicCoverImg(comic)})` }}>
         <Box>
-          <img src={comicCoverImg} alt={comic.title} />
+          <img src={comicCoverImg(comic)} alt={comic.title} />
           <Content>
             <div>
               <h2>Description:</h2>

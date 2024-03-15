@@ -3,7 +3,7 @@ import R from "../../assets/R.png";
 
 export const Container = styled.div`
   /* The image used */
-  background-image: url(${R});
+  /* background-image: url(${R}); */
 
   /* Set a specific height */
   min-height: 500px;

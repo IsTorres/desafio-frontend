@@ -58,10 +58,6 @@ export const NavMenu = styled.nav`
   top: 0;
   left: 0;
   background-color: #242424;
-
-  /* .nav-itens {
-    padding: 2% 0;
-  } */
 `;
 
 export const TitleContent = styled.h1`
@@ -102,14 +98,14 @@ export const TitleContent = styled.h1`
   }
 `;
 
-export const Buttons = styled.div`
+export const Btns = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
 `;
 
-export const BuyButton = styled.button`
+export const BuyBtn = styled.button`
   background-color: #ff0000;
 
   p {
@@ -125,7 +121,7 @@ export const BuyButton = styled.button`
   }
 `;
 
-export const ActionButtons = styled.button`
+export const ActionBtn = styled.button`
   background-color: #242424;
   font-size: larger;
   padding: 6px 8px 3px;

@@ -1,5 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 import md5 from "md5";
+import { Comic } from "../types/Comic";
 
 const VITE_PUBLIC_API_URL = "https://gateway.marvel.com";
 const VITE_PUBLIC_API_KEY = "4a32cc9eabad270186710953f8d81c44";
@@ -21,7 +22,9 @@ const defaultParams = {
   hash,
 };
 
-export const fetchComicsWithParams = async (dateDescriptor: string) => {
+export const fetchComicsWithParams: (
+  dateDescriptor: string
+) => Promise<Comic[]> = async (dateDescriptor: string) => {
   try {
     const request = await api.get("comics", {
       params: {
@@ -37,7 +40,9 @@ export const fetchComicsWithParams = async (dateDescriptor: string) => {
   }
 };
 
-export const fetchSpecificComicById = async (id: string) => {
+export const fetchSpecificComicById: (id: string) => Promise<Comic> = async (
+  id: string
+) => {
   try {
     const request = await api.get("comics", {
       params: {
@@ -45,7 +50,7 @@ export const fetchSpecificComicById = async (id: string) => {
         id,
       },
     });
-    return request.data.data.results;
+    return request.data.data.results[0];
   } catch (error) {
     console.error("Erro ao buscar quadrinho:", error);
     throw error;

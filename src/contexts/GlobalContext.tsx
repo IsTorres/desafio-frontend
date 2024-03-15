@@ -12,6 +12,7 @@ type ContextProps = {
   clearCart: () => void;
   sumQtd: () => number;
   showQtd: (id: number) => number | null;
+  // cardState: CardState;
 };
 
 export const AppContext = createContext({} as ContextProps);

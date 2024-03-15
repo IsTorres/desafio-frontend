@@ -1,26 +1,9 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 import SpecificComic from "../../components/ProductPage/SpecificComic";
-import { fetchSpecificComicById } from "../../service";
-import { Comic } from "../../types/Comic";
+import { useFetchSpecificComic } from "../../hooks/useFetchSpecificComic";
 
 export default function Product() {
-  const { id } = useParams();
-
-  const [loading, setLoading] = useState<boolean>(true);
-  const [comicInfo, setComicInfo] = useState<Comic>();
-
-  const getComic = async (id: string) => {
-    setLoading(true);
-    try {
-      const [comicData] = await fetchSpecificComicById(id);
-      setComicInfo(comicData);
-    } catch (error) {
-      console.error("Comic not found", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const { id, loading, getComic, comicInfo } = useFetchSpecificComic();
 
   useEffect(() => {
     if (id) {

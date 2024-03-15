@@ -1,22 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-// import "./index.css";
+import FinishBuy from "../../components/ShoppingCartPage/FinishBuy";
+import ShoppingList from "../../components/ShoppingCartPage/ShoppingList";
+import { myState } from "../../utils";
 
 export default function ShoppingCart() {
   return (
     <>
       <h1>Shopping Cart</h1>
-      <ul>
-        <li>
-          <a href="/product/">Product</a>
-        </li>
-        <li>
-          <a href="/checkout/">Checkout</a>
-        </li>
-        <li>
-          <a href="/">home</a>
-        </li>
-      </ul>
+      {myState.length < 1 ? <h2>The Cart is empty</h2> : <ShoppingList />}
+      <FinishBuy />
     </>
   );
 }

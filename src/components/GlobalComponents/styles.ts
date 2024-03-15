@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Logo = styled.div`
   a img {
-    padding: 0 5%;
+    padding: 2% 0;
     width: 10%;
     &:before {
       background-color: #c6a972;
@@ -17,17 +17,27 @@ export const Logo = styled.div`
       transform-origin: left bottom;
     }
   }
+
+  @media (max-width: 768px) {
+    a img {
+      width: 20%;
+    }
+  }
 `;
 
 export const Cart = styled.div`
+  width: 40px;
+  height: 35px;
   position: absolute;
   right: 5%;
   top: 30%;
-  font-size: xxx-large;
-  padding: 0;
+  font-size: 25px;
+  padding-top: 5px;
+  border-radius: 30px;
+  background: yellow;
 
   a {
-    color: yellow;
+    color: #242424;
   }
   @media (max-width: 768px) {
     right: 5%;
@@ -35,13 +45,15 @@ export const Cart = styled.div`
 `;
 
 export const CountDot = styled.div`
-  color: white;
-  font-size: 15px;
+  color: #242424;
+  font-weight: 900;
+  font-size: 12px;
   position: absolute;
-  bottom: 15%;
+  bottom: -10%;
   right: -10%;
-  background: red;
-  padding: 0px 8px;
+  background: white;
+  padding: 0px 6px;
+  border: 1px #242424 solid;
   border-radius: 20px;
 `;
 
@@ -52,10 +64,6 @@ export const NavMenu = styled.nav`
   top: 0;
   left: 0;
   background-color: #242424;
-
-  /* .nav-itens {
-    padding: 2% 0;
-  } */
 `;
 
 export const TitleContent = styled.h1`
@@ -96,30 +104,32 @@ export const TitleContent = styled.h1`
   }
 `;
 
-export const Buttons = styled.div`
+export const Btns = styled.div`
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
   margin-top: 20px;
-`;
 
-export const BuyButton = styled.button`
-  background-color: #ff0000;
+  div {
+    margin: "0 10px";
+  }
 
-  p {
-    font:
-      normal 13px / 1.2 "Roboto",
-      "Trebuchet MS",
-      Helvetica,
-      Arial,
-      sans-serif;
-    letter-spacing: 0;
-    text-align: left;
-    color: #fff;
+  h4 {
+    font-size: x-large;
+    margin: auto;
   }
 `;
 
-export const ActionButtons = styled.button`
-  background-color: transparent;
-  font-size: x-large;
-  padding: 0 10px;
+export const BuyBtn = styled.button`
+  background-color: #c32424;
+  font-size: 20px;
+  padding: 15px;
+`;
+
+export const ActionBtn = styled.button`
+  background-color: #242424;
+  font-size: larger;
+  padding: 6px 8px 3px;
+  border-radius: 40px;
+  margin: 10px;
 `;

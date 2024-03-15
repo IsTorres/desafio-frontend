@@ -1,3 +1,5 @@
+import { Comic } from "../types/Comic";
+
 export const addSpaces = (str: string) => {
   let novaString = "";
   for (let i = 0; i < str.length; i++) {
@@ -10,3 +12,10 @@ export const addSpaces = (str: string) => {
   }
   return novaString;
 };
+
+export const comicCoverImg = (comic: Comic) =>
+  `${comic.thumbnail.path}.${comic.thumbnail.extension}`;
+
+export const myState: { id: number; qtd: number; price: number }[] = JSON.parse(
+  localStorage.getItem("myState") || "{}"
+);

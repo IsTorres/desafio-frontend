@@ -1,16 +1,16 @@
-import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
-import { Buttons, BuyButton, ActionButtons } from "./styles";
+import { useContext } from "react";
+import { AppContext } from "../../contexts/GlobalContext";
+import { Btns, BuyBtn } from "./styles";
+import { Comic } from "../../types/Comic";
 
-export default function BuyButtonComponent() {
+export default function BuyButtonComponent({ item }: { item: Comic }) {
+  const { addProduct } = useContext(AppContext);
+
   return (
-    <Buttons>
-      <ActionButtons>
-        <FaMinusCircle />
-      </ActionButtons>
-      <BuyButton>Buy</BuyButton>
-      <ActionButtons>
-        <FaPlusCircle />
-      </ActionButtons>
-    </Buttons>
+    <Btns>
+      <BuyBtn onClick={() => addProduct(item.id, item.prices[0].price)}>
+        Add to Cart
+      </BuyBtn>
+    </Btns>
   );
 }

@@ -1,8 +1,11 @@
 import MarvelComicsIcon from "../../../public/MarvelComicsIcon.png";
 import { FaShoppingCart } from "react-icons/fa";
 import { Cart, CountDot, Logo, NavMenu } from "./styles";
+import { useContext } from "react";
+import { AppContext } from "../../contexts/GlobalContext";
 
 export default function Menu() {
+  const { sumQtd } = useContext(AppContext);
   return (
     <NavMenu>
       <Logo>
@@ -11,7 +14,7 @@ export default function Menu() {
         </a>
       </Logo>
       <Cart>
-        <CountDot>0</CountDot>
+        <CountDot>{sumQtd()}</CountDot>
         <a href="/shopping-cart/">
           <FaShoppingCart width={"3em"} height={"3em "} />
         </a>

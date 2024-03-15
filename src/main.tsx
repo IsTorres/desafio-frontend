@@ -14,5 +14,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         {/* <SpeedInsights /> */}
       </CreditCardProvider>
     </GlobalProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

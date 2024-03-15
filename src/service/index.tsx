@@ -2,32 +2,28 @@ import axios, { AxiosInstance } from "axios";
 import md5 from "md5";
 import { Comic } from "../types/Comic";
 
-// const VITE_PUBLIC_API_URL = "https://gateway.marvel.com";
-// const VITE_PUBLIC_API_KEY = "4a32cc9eabad270186710953f8d81c44";
-// const VITE_PRIVATE_API_KEY = "56b7aeb535744220be8e1b374bcb4fec429a5353";
+const VITE_PUBLIC_API_URL = "https://gateway.marvel.com";
+const VITE_PUBLIC_API_KEY = "4a32cc9eabad270186710953f8d81c44";
+const VITE_PRIVATE_API_KEY = "56b7aeb535744220be8e1b374bcb4fec429a5353";
 
 const ts = Number(new Date());
 
-const hash = md5(
-  ts +
-    import.meta.env.VITE_PRIVATE_API_KEY +
-    import.meta.env.VITE_PUBLIC_API_KEY
-);
+const hash = md5(ts + VITE_PRIVATE_API_KEY + VITE_PUBLIC_API_KEY);
 
 const api: AxiosInstance = axios.create({
-  baseURL: `${import.meta.env.VITE_PUBLIC_API_URL}/v1/public/`,
+  baseURL: `${VITE_PUBLIC_API_URL}/v1/public/`,
 });
 
 const defaultParams = {
   format: "comic",
   formatType: "comic",
   ts,
-  apikey: import.meta.env.VITE_PUBLIC_API_KEY,
+  apikey: VITE_PUBLIC_API_KEY,
   hash,
 };
 
 export const fetchComicsWithParams: (
-  dateDescriptor: string
+  dateDescriptor: string,
 ) => Promise<Comic[]> = async (dateDescriptor: string) => {
   try {
     const request = await api.get("comics", {
@@ -45,7 +41,7 @@ export const fetchComicsWithParams: (
 };
 
 export const fetchSpecificComicById: (id: string) => Promise<Comic> = async (
-  id: string
+  id: string,
 ) => {
   try {
     const request = await api.get("comics", {

@@ -38,7 +38,7 @@ export default function SpecificComic({ comic }: Props) {
                       <h5>{creator.name}</h5>
                       <p>{creator.role}</p>
                     </CreatorsInfo>
-                  )
+                  ),
                 )}
               </Creators>
             </div>

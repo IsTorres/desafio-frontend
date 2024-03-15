@@ -35,7 +35,7 @@ export default function CreditCardForm() {
         {
           message:
             "Invalid expiration month. Please use a valid month between 01 and 12.",
-        }
+        },
       ),
     expiresYear: z
       .string()
@@ -46,7 +46,7 @@ export default function CreditCardForm() {
         {
           message:
             "Invalid expiration year. Please use a valid year that is equal or after the current year.",
-        }
+        },
       ),
     cvv: z.number().min(3, "CVV is required").max(3),
   });

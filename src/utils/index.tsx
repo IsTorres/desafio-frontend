@@ -17,7 +17,7 @@ export const comicCoverImg = (comic: Comic) =>
   `${comic.thumbnail.path}.${comic.thumbnail.extension}`;
 
 export const myState: { id: number; qtd: number; price: number }[] = JSON.parse(
-  localStorage.getItem("myState") || "{}"
+  localStorage.getItem("myState") || "{}",
 );
 
 export function getMonths() {

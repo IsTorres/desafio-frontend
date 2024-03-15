@@ -36,7 +36,7 @@ export default function ShoppingList() {
           {comicArrayInfo.map((item) => {
             // Verifica se o item está presente em myState e tem quantidade maior que zero
             const existsInMyState = myState.find(
-              (el) => el.id === item.id && el.qtd > 0
+              (el) => el.id === item.id && el.qtd > 0,
             );
             if (!existsInMyState) {
               return null;

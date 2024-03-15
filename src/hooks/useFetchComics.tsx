@@ -21,14 +21,16 @@ export default function useFetchComics() {
     setLoading(true);
     try {
       const comicsData = await Promise.all(
-        newDateDescriptor.map((descriptor) => fetchComicsWithParams(descriptor))
+        newDateDescriptor.map((descriptor) =>
+          fetchComicsWithParams(descriptor),
+        ),
       );
       const comicsObject: ComicsPeriodes = newDateDescriptor.reduce(
         (acc, descriptor, index) => {
           acc[descriptor] = comicsData[index];
           return acc;
         },
-        {} as ComicsPeriodes
+        {} as ComicsPeriodes,
       );
       setComics(comicsObject);
     } catch (error) {

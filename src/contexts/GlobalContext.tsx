@@ -23,14 +23,14 @@ export default function GlobalProvider({
   children: React.ReactNode;
 }) {
   const myState: itemCart[] = JSON.parse(
-    localStorage.getItem("myState") || "[]"
+    localStorage.getItem("myState") || "[]",
   );
   const [productsCart, setProductsCart] = useState<itemCart[]>(myState);
 
   const addProduct = (id: number, price: number) => {
     const updatedProductsCart = [...productsCart];
     const existingProductIndex = updatedProductsCart.findIndex(
-      (product) => product.id === id
+      (product) => product.id === id,
     );
 
     if (existingProductIndex === -1) {
@@ -48,7 +48,7 @@ export default function GlobalProvider({
   const removeProduct = (id: number) => {
     const updatedProductsCart = [...productsCart];
     const existingProductIndex = updatedProductsCart.findIndex(
-      (product) => product.id === id
+      (product) => product.id === id,
     );
 
     if (

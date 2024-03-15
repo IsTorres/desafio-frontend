@@ -121,8 +121,8 @@ export const Btns = styled.div`
 `;
 
 export const BuyBtn = styled.button`
-  background-color: #ff0000;
-  font-size: 30px;
+  background-color: #c32424;
+  font-size: 20px;
   padding: 15px;
 `;
 

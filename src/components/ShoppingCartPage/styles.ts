@@ -48,3 +48,9 @@ export const ActionBtnsDiv = styled.div`
   display: flex;
   justify-content: center;
 `;
+
+export const FinishBuyDiv = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  margin: 3% 10% 10%;
+`;

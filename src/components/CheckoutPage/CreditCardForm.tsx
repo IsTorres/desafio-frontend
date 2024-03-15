@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { CreditCardContext } from "../../contexts/CreditCardContext";
 import { cardPlaceholder, getMonths, getYears } from "../../utils";
-import { Asdf, Button, Form, Input, Label, Select, SpanError } from "./styles";
+import { Button, Form, Input, Label, Select, SpanError } from "./styles";
 
 export default function CreditCardForm() {
   const { cardData } = useContext(CreditCardContext);
@@ -56,7 +56,6 @@ export default function CreditCardForm() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<createUserFormData>({
     resolver: zodResolver(createSchema),

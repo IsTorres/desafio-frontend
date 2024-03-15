@@ -74,15 +74,17 @@ const ComicsSections = ({ data }: IComicsList) => {
       {data ? (
         <>{sections}</>
       ) : (
-        <ThreeCircles
-          visible={true}
-          height="100"
-          width="100"
-          color="#ff0000"
-          ariaLabel="three-circles-loading"
-          wrapperStyle={{}}
-          wrapperClass=""
-        />
+        <div style={{ position: "absolute", left: "50%", top: "50%" }}>
+          <ThreeCircles
+            visible={true}
+            height="100"
+            width="100"
+            color="#ff0000"
+            ariaLabel="three-circles-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+          />
+        </div>
       )}
     </Pagination>
   );

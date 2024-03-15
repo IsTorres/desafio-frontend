@@ -2,8 +2,14 @@
   width: 100%;
   min-height: 75vh;
   margin: 0 auto;
-  padding-top: 12rem;
+  padding-top: 10rem;
   text-align: center;
   color: #242424;
   background-color: white;
+}
+
+@media (max-width: 768px) {
+  #root {
+    padding-top: 5rem;
+  }
 }

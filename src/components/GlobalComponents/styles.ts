@@ -68,7 +68,7 @@ export const NavMenu = styled.nav`
 
 export const TitleContent = styled.h1`
   /* Estilos diretamente aplicados ao componente TitleContent */
-  font-family: fantasy, sans-serif;
+  font-family: League Gothic;
   position: relative;
   margin-left: 0 !important;
   margin-top: 45px !important;

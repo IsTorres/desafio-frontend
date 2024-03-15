@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import R from "../../assets/R.png";
 
 export const Pagination = styled.div`
   display: flex;
@@ -13,6 +12,10 @@ export const Container = styled.div`
   -webkit-overflow-scrolling: touch;
   width: 100%;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    max-width: 80vw;
+  }
 `;
 export const Carousel = styled.div`
   display: flex;
@@ -20,32 +23,48 @@ export const Carousel = styled.div`
   scroll-behavior: smooth;
   scrollbar-width: none;
 `;
+
+export const Box = styled.div`
+  display: flex;
+  padding: 5%;
+  justify-content: center;
+  background-color: rgb(0 0 0 / 60%);
+  backdrop-filter: blur(6px);
+
+  img {
+    height: 100%;
+    box-shadow: 2px 5px 10px 5px rgb(0 0 0 / 60%);
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
 export const ApresentationDiv = styled.div`
-  min-height: 500px;
-  background-image: url(${R});
+  min-height: 435px;
   background-position: center;
-  /* background-attachment: fixed; */
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   h1 {
+    /* width: 100%; */
     color: #c6a972;
-    font-family: fantasy;
+    font-family: "league gothic";
+    font-weight: bolder;
     text-transform: uppercase;
-    font-size: 4.2em;
+    font-size: 8.2em;
     line-height: 1.1;
-    background: rgb(0 0 0 / 60%);
-    padding: 14% 30%;
-    backdrop-filter: blur(5px);
+    /* background: rgb(0 0 0 / 60%); */
+    padding: 5% 25%;
+    /* backdrop-filter: blur(5px); */
     margin: 0;
   }
 
   @media (max-width: 768px) {
     h1 {
-      min-height: 300px;
+      font-size: 4.2em;
+      padding: 14% 30%;
     }
   }
 `;
@@ -135,9 +154,9 @@ export const CardCover = styled.div`
   }
 
   p {
-    margin-top: 10px;
     margin: 0px 10px;
-    font-family: fantasy;
+    font-family: "Roboto";
+    font-weight: 900;
     font-size: x-large;
   }
 `;

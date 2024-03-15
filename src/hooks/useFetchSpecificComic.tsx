@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { fetchSpecificComicById } from "../service";
 import { Comic } from "../types/Comic";
 
-export const useFetchSpecificComic = () => {
+export default function useFetchSpecificComic() {
   const { id } = useParams();
 
   const [loading, setLoading] = useState<boolean>(true);
@@ -22,4 +22,4 @@ export const useFetchSpecificComic = () => {
   };
 
   return { id, loading, comicInfo, getComic };
-};
+}

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { fetchSpecificComicById } from "../service";
 import { Comic } from "../types/Comic";
 
-export const useFetchArrayComics = () => {
+export default function useFetchArrayComics() {
   const [comicArrayInfo, setComicArrayInfo] = useState<Comic[]>([]);
 
   const getComicArray = async (idArray: string[]) => {
@@ -19,4 +19,4 @@ export const useFetchArrayComics = () => {
   };
 
   return { comicArrayInfo, getComicArray };
-};
+}

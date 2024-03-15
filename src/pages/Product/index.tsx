@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import SpecificComic from "../../components/ProductPage/SpecificComic";
-import { useFetchSpecificComic } from "../../hooks/useFetchSpecificComic";
+import useFetchSpecificComic from "../../hooks/useFetchSpecificComic";
 import { ThreeCircles } from "react-loader-spinner";
 
 export default function Product() {

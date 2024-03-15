@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useFetchArrayComics } from "../../hooks/useFetchArrayComics";
+import useFetchArrayComics from "../../hooks/useFetchArrayComics";
 import { comicCoverImg, myState } from "../../utils";
 import ActionButtons from "../GlobalComponents/ActionButtons";
 import { InfoDivCard, ShoppingItemCard } from "./styles";

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { fetchComicsWithParams } from "../service";
 import { ComicsPeriodes } from "../types/Comic";
 
-export const useFetchComics = () => {
+export default function useFetchComics() {
   const [loading, setLoading] = useState(false);
   const [comics, setComics] = useState<ComicsPeriodes>({
     thisWeek: [],
@@ -39,4 +39,4 @@ export const useFetchComics = () => {
   };
 
   return { loading, comics, fetchComics };
-};
+}

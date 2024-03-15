@@ -5,6 +5,10 @@ import { FinishBuyDiv } from "./styles";
 export default function FinishBuy() {
   const { clearCart, productsCart } = useContext(AppContext);
 
+  const total = productsCart.reduce((acc, item) => {
+    return acc + item.price * item.qtd;
+  }, 0);
+
   //   console.log(productsCart);
   return (
     <FinishBuyDiv>
@@ -14,7 +18,7 @@ export default function FinishBuy() {
       >
         Clear cart
       </button>
-      <h2>Total: </h2>
+      <h2>Total: {total.toFixed(2)}</h2>
       <a href="/checkout">
         <button>Checkout</button>
       </a>

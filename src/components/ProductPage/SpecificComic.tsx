@@ -1,13 +1,12 @@
-import { url } from "inspector";
 import { Comic } from "../../types/Comic";
 import { addSpaces, comicCoverImg } from "../../utils";
 import BuyButtonComponent from "../GlobalComponents/BuyButton";
 import { TitleContent } from "../GlobalComponents/styles";
 import {
+  Box,
   ComicPage,
   Container,
   Content,
-  Box,
   Creators,
   CreatorsInfo,
 } from "./styles";
@@ -53,7 +52,7 @@ export default function SpecificComic({ comic }: Props) {
                 );
               })}
             </div>
-            <BuyButtonComponent id={comic.id} />
+            <BuyButtonComponent item={comic} />
           </Content>
         </Box>
       </Container>

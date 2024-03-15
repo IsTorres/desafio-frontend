@@ -8,11 +8,11 @@ import { myState } from "../../utils";
 export default function ActionButtons({ item }: { item: Comic }) {
   const { addProduct, removeProduct } = useContext(AppContext);
 
-  const { price } = item.prices[0];
-
   const showQtd = (item: Comic) => {
     return myState.find((el) => el.id === item.id)?.qtd || null;
   };
+
+  // console.log(item.prices[0].price, "action");
 
   return (
     <Btns>
@@ -23,7 +23,7 @@ export default function ActionButtons({ item }: { item: Comic }) {
         <h4>Units: {showQtd(item)}</h4>
         <h4>Price: U${item.prices[0].price}</h4>
       </div>
-      <BuyBtn onClick={() => addProduct(item.id, price)}>
+      <BuyBtn onClick={() => addProduct(item.id, 10)}>
         <FaCirclePlus />
       </BuyBtn>
     </Btns>

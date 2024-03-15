@@ -38,6 +38,8 @@ export default function GlobalProvider({
     }
 
     setProductsCart(updatedProductsCart);
+    console.log(updatedProductsCart, price);
+
     localStorage.setItem("myState", JSON.stringify(updatedProductsCart));
   };
 

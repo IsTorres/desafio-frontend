@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Apresentation from "../../components/HomePage/Apresentation";
 import ComicsSections from "../../components/HomePage/ComicsSections";
 import { ComicList } from "../../components/HomePage/styles";
 import { useFetchComics } from "../../hooks/useFetchComics";
@@ -16,6 +17,7 @@ export default function Home() {
         <p>Loading...</p>
       ) : comics ? (
         <>
+          <Apresentation />
           <ComicsSections data={comics} />
         </>
       ) : (

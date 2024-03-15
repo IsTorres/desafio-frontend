@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import R from "../../assets/R.png";
 
 export const Pagination = styled.div`
   display: flex;
@@ -19,14 +20,35 @@ export const Carousel = styled.div`
   scroll-behavior: smooth;
   scrollbar-width: none;
 `;
-// export const PaginationDiv = styled.div`
-// .btn-carousel {
-//   background-color: transparent;
-//   background-repeat: no-repeat;
-//   background-position: center;
-//   padding: 45px 35px;
-//   border: transparent;
-// }`
+export const ApresentationDiv = styled.div`
+  min-height: 500px;
+  background-image: url(${R});
+  background-position: center;
+  /* background-attachment: fixed; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    color: #c6a972;
+    font-family: fantasy;
+    text-transform: uppercase;
+    font-size: 4.2em;
+    line-height: 1.1;
+    background: rgb(0 0 0 / 60%);
+    padding: 14% 30%;
+    backdrop-filter: blur(5px);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      min-height: 300px;
+    }
+  }
+`;
 
 export const BtnCarousel = styled.button`
   background-color: transparent;
@@ -62,7 +84,7 @@ export const ComicSections = styled.section`
 `;
 
 export const ComicList = styled.div`
-  width: fit-content;
+  /* width: fit-content; */
   margin: auto;
 `;
 
